@@ -31,15 +31,9 @@ public class Shuriken : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if (other.tag != "Player" && other.tag != "Trap" && other.tag != "Background")
         {
-            Destroy(other.gameObject);
-        }
-        if (other.tag != "Player" && other.tag != "Trap")
-        {
-            Debug.Log(other.name);
             Destroy(gameObject);
-
         }
     }
 

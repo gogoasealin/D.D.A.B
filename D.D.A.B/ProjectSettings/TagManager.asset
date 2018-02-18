@@ -11,6 +11,7 @@ TagManager:
   - GameManager
   - Shuriken
   - Trap
+  - BackGround
   layers:
   - Default
   - TransparentFX

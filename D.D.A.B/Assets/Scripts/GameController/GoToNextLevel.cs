@@ -26,7 +26,11 @@ public class GoToNextLevel : MonoBehaviour {
             int levelReached = lvlnumber;
 
             gameManagerScript.Save(levelReached);
-            SceneManager.LoadScene("level" + lvlnumber); 
+            if(lvlnumber == 6)
+            {
+                SceneManager.LoadScene("End");
+            }
+            else SceneManager.LoadScene("level" + lvlnumber); 
         }
     }
 }

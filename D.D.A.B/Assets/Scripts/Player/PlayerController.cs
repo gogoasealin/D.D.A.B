@@ -26,11 +26,13 @@ public class PlayerController : MonoBehaviour {
     public GameObject trowPosition;
     public GameObject trowPrefab;
     public bool canUseShuriken;
+    private Animator anim;
 
     void Awake () {
         rb2d = GetComponent<Rigidbody2D>();
         gameControllerScript = gameController.GetComponent<GameController>();
         facingRight = true;
+        anim = GetComponent<Animator>();
     }
 
 
@@ -52,10 +54,12 @@ public class PlayerController : MonoBehaviour {
                 gameObject.transform.rotation = movingRight;
                 facingRight = true;
             }
+            anim.SetBool("Moving", true);
         }
         else
         {
             dirX = 0;
+            anim.SetBool("Moving", false);
         }
 
         if (dirX == 0)
@@ -77,10 +81,14 @@ public class PlayerController : MonoBehaviour {
             {
                 TrowShuriken();
             }
+            if(CrossPlatformInputManager.GetButtonDown("Down"))
+            {
+                TrowShuriken();
+            }
 
         } 
-        CheckPlayerPosition();
-        JoystickInvisible();
+        //CheckPlayerPosition();
+        //JoystickInvisible();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameControllerScript.SwitchPause();         
@@ -119,35 +127,43 @@ public class PlayerController : MonoBehaviour {
         }
         if(other.gameObject.tag == "Enemy")
         {
-            gameObject.SetActive(false);
             gameControllerScript.GameOver();
         }
     }
-    private void CheckPlayerPosition()
+
+    private void OnCollisionExit2D(Collision2D other)
     {
-        Vector3 tmpPos = Camera.main.WorldToScreenPoint(transform.position);
-        if (tmpPos.x < (Screen.width / 3) && tmpPos.y < (Screen.height / 3))
+        if (other.gameObject.tag == "Ground")
         {
-            playerOnJoystickPosition = true;
+            canJump = false;
         }
-        else playerOnJoystickPosition = false;
-        //Debug.Log(tmpPos.x + " " + (Screen.width / 3) + " " + tmpPos.y + " " + (Screen.height / 3));
     }
 
-    private void JoystickInvisible()
-    {
-        if (playerOnJoystickPosition)
-        {
-            Color tempColor = new Color(1f, 1f, 1f, 0.1765f);
-            moveJoystick.bgImg.color = tempColor;
-            moveJoystick.joystickImg.color = tempColor;
-        }
-        else
-        {
-            moveJoystick.bgImg.color = new Color(255, 255, 255, 255);
-            moveJoystick.joystickImg.color = new Color(255, 255, 255, 255);
-        }
-    }
+    //private void CheckPlayerPosition()
+    //{
+    //    Vector3 tmpPos = Camera.main.WorldToScreenPoint(transform.position);
+    //    if (tmpPos.x < (Screen.width / 3) && tmpPos.y < (Screen.height / 3))
+    //    {
+    //        playerOnJoystickPosition = true;
+    //    }
+    //    else playerOnJoystickPosition = false;
+    //    //Debug.Log(tmpPos.x + " " + (Screen.width / 3) + " " + tmpPos.y + " " + (Screen.height / 3));
+    //}
+
+    //private void JoystickInvisible()
+    //{
+    //    if (playerOnJoystickPosition)
+    //    {
+    //        Color tempColor = new Color(1f, 1f, 1f, 0.1765f);
+    //        moveJoystick.bgImg.color = tempColor;
+    //        moveJoystick.joystickImg.color = tempColor;
+    //    }
+    //    else
+    //    {
+    //        moveJoystick.bgImg.color = new Color(255, 255, 255, 255);
+    //        moveJoystick.joystickImg.color = new Color(255, 255, 255, 255);
+    //    }
+    //}
 
     void OnBecameInvisible()
     {
