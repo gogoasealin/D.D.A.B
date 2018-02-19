@@ -16,7 +16,10 @@ public class SearchForEnemy : MonoBehaviour {
     {
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        gameManagerScript = gameManager.GetComponent<GameManager>();
+        if (gameManager != null)
+        {
+            gameManagerScript = gameManager.GetComponent<GameManager>();
+        }
     }
 
 

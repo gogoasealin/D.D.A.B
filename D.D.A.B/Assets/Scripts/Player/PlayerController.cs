@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     public bool canUseShuriken;
     private Animator anim;
 
+
     void Awake () {
         rb2d = GetComponent<Rigidbody2D>();
         gameControllerScript = gameController.GetComponent<GameController>();
@@ -128,6 +129,14 @@ public class PlayerController : MonoBehaviour {
         if(other.gameObject.tag == "Enemy")
         {
             gameControllerScript.GameOver();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            canJump = true;
         }
     }
 

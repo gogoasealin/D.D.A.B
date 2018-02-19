@@ -8,6 +8,7 @@ public class Target : MonoBehaviour {
     {
         if(other.tag == "Shuriken")
         {
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

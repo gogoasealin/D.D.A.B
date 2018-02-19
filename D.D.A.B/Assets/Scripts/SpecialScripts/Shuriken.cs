@@ -31,7 +31,7 @@ public class Shuriken : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Player" && other.tag != "Trap" && other.tag != "Background")
+        if (other.tag == "Ground" || other.tag == "Environment")
         {
             Destroy(gameObject);
         }

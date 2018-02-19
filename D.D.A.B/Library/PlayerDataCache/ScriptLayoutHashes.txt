@@ -83,7 +83,9 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.KillPlayer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SearchForEnemy
+dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.InstantiateOnTrigger
 841aa4c5d8bddd8dc3960fa01c1bf1b8 Assembly-CSharp.dll:.Lightning
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FallingPlatform
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -96,6 +98,8 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+0241e379b7d86748548637008c28e2e1 Assembly-CSharp.dll:.PlatformMoveMorePosition
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FalllingScript
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -146,8 +150,9 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 89d45121b311f1c42a835c635229c7f8 Assembly-CSharp.dll:.PlayerController
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
+dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.SpinnerScript
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
-5ce82e32ebb6cea159c5a2d2fb6ec69a Assembly-CSharp.dll:.AxeRotation
+66260a48652432f768660aecdd29db37 Assembly-CSharp.dll:.AxeRotation
 0ea7e3a1b65cd933d7a007e6774c4eaa Assembly-CSharp.dll:.LightPlayerFollow
 142ea3be4542b4f58a30466f85f55cba Assembly-CSharp.dll:.ScaleWithCamera
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -156,7 +161,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 235489ec64e0e803555469ab75da92a9 Assembly-CSharp.dll:.LevelManager
-a01268a51699d7fa488c98d174bce8b8 Assembly-CSharp.dll:.GameController
+222bf5109824b26eb3d8533ce88c059f Assembly-CSharp.dll:.GameController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GoToNextLevel
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Spikes
@@ -164,7 +169,8 @@ a8796ecdc9d5c260bbe32f30c4b10708 Assembly-CSharp.dll:UnityStandardAssets.CrossPl
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.Shuriken
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MenuManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Target
-1dd0342fe2877fcc2f93cde76c973abf Assembly-CSharp.dll:.PlatformMove
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AxeSemiRotation
+4d370e9b34ed4d62d73ecc5bcdc51596 Assembly-CSharp.dll:.PlatformMove
 2b4543294faab9ad0af1c8b931640a57 Assembly-CSharp.dll:.Trampoline
 ac6c4d16fb09821f5ed827f45f32794c Assembly-CSharp.dll:.EnemyScript
 b56dd85d6ed927a3f68f08d0dc065bbc Assembly-CSharp.dll:.Joystick

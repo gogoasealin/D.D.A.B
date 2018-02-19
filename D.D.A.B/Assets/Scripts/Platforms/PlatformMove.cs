@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlatformMove : MonoBehaviour
 {
 
-    public GameObject platform;
-
     public float moveSpeed;
 
     private Vector3 startPosition;
@@ -26,10 +24,10 @@ public class PlatformMove : MonoBehaviour
 
     void Update()
     {
-        platform.transform.position = Vector3.MoveTowards(platform.transform.position, goPosition, Time.deltaTime * moveSpeed);
-        if (platform.transform.position == goPosition)
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, goPosition, Time.deltaTime * moveSpeed);
+        if (gameObject.transform.position == goPosition)
         {
-            if(platform.transform.position == startPosition)
+            if(gameObject.transform.position == startPosition)
             {
                 goPosition = nextPosition;
             }

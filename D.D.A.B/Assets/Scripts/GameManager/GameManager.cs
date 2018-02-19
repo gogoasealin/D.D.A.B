@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
         PlayerInfo data = new PlayerInfo();
 
         data.levelsReached = levelReached;
+        
+
 
 
         bf.Serialize(file, data);
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour
 class PlayerInfo
 {
     public int levelsReached;
-    //public int numberOfAllGames;
+
 }
 
 

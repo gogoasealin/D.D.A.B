@@ -8,15 +8,18 @@ public class LevelManager : MonoBehaviour {
     public GameObject[] levels;
     public GameObject gameManager;
     public GameManager gameManagerScript;
+    
 
     
 
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        gameManagerScript = gameManager.GetComponent<GameManager>();
-
-        gameManagerScript.Load(ref levelReached);
+        if (gameManager != null)
+        {
+            gameManagerScript = gameManager.GetComponent<GameManager>();
+            gameManagerScript.Load(ref levelReached);
+        }            
 
         levels = GameObject.FindGameObjectsWithTag("Level");
         string nextLevel;

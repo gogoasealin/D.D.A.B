@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     public int numberOfAllGames;
     public int levelReached;
     public int currentLevelReached;
-
+    public bool death;
     //private PlayAdd playAdd;
     public bool pause;
 
@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         playerControllerScript.enabled = false;
+        death = true;
         //animatie de moarte
 
 

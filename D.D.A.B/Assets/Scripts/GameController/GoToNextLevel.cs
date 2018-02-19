@@ -7,30 +7,53 @@ public class GoToNextLevel : MonoBehaviour {
 
     private GameObject gameManager;
     private GameManager gameManagerScript;
+    private GameObject gameController;
+    private GameController gameControllerScript;
 
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        gameManagerScript = gameManager.GetComponent<GameManager>();
+        if (gameManager != null)
+        {
+            gameManagerScript = gameManager.GetComponent<GameManager>();
+        }
+        gameController = GameObject.FindGameObjectWithTag("GameController");
+        gameControllerScript = gameController.GetComponent<GameController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !gameControllerScript.death)
         {
-            Scene scene = SceneManager.GetActiveScene();
-            string nextLevel = scene.name;
-            string nextLevelName = nextLevel.Substring(nextLevel.Length-1);
-            int lvlnumber = int.Parse(nextLevelName);
-            lvlnumber++;
-            int levelReached = lvlnumber;
-
-            gameManagerScript.Save(levelReached);
-            if(lvlnumber == 6)
-            {
-                SceneManager.LoadScene("End");
-            }
-            else SceneManager.LoadScene("level" + lvlnumber); 
+            NexTLevel();
         }
+    }
+
+    private void NexTLevel()
+    {
+        int levelMax = 0;
+        if (gameManagerScript != null)
+        {
+            gameManagerScript.Load(ref levelMax);
+        }
+        Scene scene = SceneManager.GetActiveScene();
+        string nextLevel = scene.name;
+        string nextLevelName = nextLevel.Substring(nextLevel.Length - 1);
+        int lvlnumber = int.Parse(nextLevelName);
+        lvlnumber++;
+        int levelReached = lvlnumber;
+
+        if (gameManagerScript != null)
+        {
+            if (levelReached > levelMax)
+            {
+                gameManagerScript.Save(levelReached);
+            }
+        }
+        if (lvlnumber == 7)
+        {
+            SceneManager.LoadScene("End");
+        }
+        else SceneManager.LoadScene("level" + lvlnumber);
     }
 }
