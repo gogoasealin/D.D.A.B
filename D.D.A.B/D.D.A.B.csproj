@@ -231,10 +231,15 @@
     <Compile Include="Assets\Scripts\Camera\LightPlayerFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\PlayerFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\ScaleWithCamera.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyRange.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyScript.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemySpawnAtPosition.cs" />
+    <Compile Include="Assets\Scripts\Enemy\InstantiateOnTrigger.cs" />
     <Compile Include="Assets\Scripts\Enemy\KillPlayer.cs" />
     <Compile Include="Assets\Scripts\Enemy\Mesaje.cs" />
     <Compile Include="Assets\Scripts\Enemy\SearchForEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\ShotScript.cs" />
     <Compile Include="Assets\Scripts\GameController\GameController.cs" />
     <Compile Include="Assets\Scripts\GameController\GoToNextLevel.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
@@ -250,17 +255,19 @@
     <Compile Include="Assets\Scripts\SpecialScripts\AxeRotation.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\AxeSemiRotation.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\FalllingScript.cs" />
-    <Compile Include="Assets\Scripts\SpecialScripts\InstantiateOnTrigger.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\LevelTimer.cs" />
+    <Compile Include="Assets\Scripts\SpecialScripts\LevelTimerForWinning.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\Lightning.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\LightObject.cs" />
+    <Compile Include="Assets\Scripts\SpecialScripts\MoveOnTrigger.cs" />
+    <Compile Include="Assets\Scripts\SpecialScripts\PortalScript.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\Shuriken.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\Spikes.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\SpikesMovement.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\SpinnerScript.cs" />
+    <Compile Include="Assets\Scripts\SpecialScripts\SwitchScript.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\Target.cs" />
     <Compile Include="Assets\Scripts\SpecialScripts\Trampoline.cs" />
-    <Compile Include="Assets\Scripts\SpecialScripts\WallRemoveScript.cs" />
     <Compile Include="Assets\Scripts\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
     <Compile Include="Assets\Scripts\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
@@ -272,6 +279,8 @@
     <Compile Include="Assets\Scripts\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
     <Compile Include="Assets\Scripts\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Scripts\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+    <Compile Include="Assets\Scripts\WallRemove\WallRemoveScript.cs" />
+    <Compile Include="Assets\Scripts\WallRemove\WallRemoveWithSwtich.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

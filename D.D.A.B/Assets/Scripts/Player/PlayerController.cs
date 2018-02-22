@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     private float dirY;
     private Rigidbody2D rb2d;
     public bool canJump;
-    public GameObject gameController;
+    private GameObject gameController;
     private GameController gameControllerScript;
     public Joystick moveJoystick;
     private bool faceRight;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 
     void Awake () {
         rb2d = GetComponent<Rigidbody2D>();
+        gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameController>();
         facingRight = true;
         anim = GetComponent<Animator>();
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour {
             {
                 TrowShuriken();
             }
-            if(CrossPlatformInputManager.GetButtonDown("Down"))
+            if (CrossPlatformInputManager.GetButtonDown("Down"))
             {
                 TrowShuriken();
             }

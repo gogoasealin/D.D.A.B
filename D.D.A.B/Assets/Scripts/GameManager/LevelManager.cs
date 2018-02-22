@@ -28,16 +28,33 @@ public class LevelManager : MonoBehaviour {
         for (int i = 0  ; i < levels.Length; i++)
         {
             nextLevel = levels[i].name;
-            nextLevelName = nextLevel.Substring(nextLevel.Length - 1);
-            lvlnumber = int.Parse(nextLevelName);
-            if(lvlnumber > levelReached)
+            if(levels[i].name.Length == 7)
             {
-                levels[i].SetActive(false);
+                nextLevelName = nextLevel.Substring(nextLevel.Length - 1);
+                lvlnumber = int.Parse(nextLevelName);
+                if (lvlnumber > levelReached)
+                {
+                    levels[i].SetActive(false);
+                }
+                if (lvlnumber == 1)
+                {
+                    levels[i].SetActive(true);
+                }
             }
-            if(lvlnumber == 1)
+            else if(levels[i].name.Length == 8)
             {
-                levels[i].SetActive(true);
+                nextLevelName = nextLevel.Substring(nextLevel.Length - 2);
+                lvlnumber = int.Parse(nextLevelName);
+                if (lvlnumber > levelReached)
+                {
+                    levels[i].SetActive(false);
+                }
+                if (lvlnumber == 1)
+                {
+                    levels[i].SetActive(true);
+                }
             }
+
         }
     }
 }

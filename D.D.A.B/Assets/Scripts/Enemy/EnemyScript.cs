@@ -16,20 +16,19 @@ public class EnemyScript : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
             gameManagerScript.GameOver();
         }
-
-        if(other.gameObject.tag == "Shuriken")
+        else if (other.gameObject.tag == "Shuriken")
         {
             Destroy(other.gameObject);
             StartCoroutine(Die());
         }
     }
+
 
     private IEnumerator Die()
     {
@@ -38,6 +37,4 @@ public class EnemyScript : MonoBehaviour {
         yield return new WaitForSeconds(animDie.length);
         Destroy(gameObject);
     }
-
-
 }

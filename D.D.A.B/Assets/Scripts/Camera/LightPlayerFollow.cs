@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class LightPlayerFollow : MonoBehaviour {
 
-    [SerializeField] private Transform target;
+    private Transform target;
+
+    private void Awake()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update () {
         if (target != null)

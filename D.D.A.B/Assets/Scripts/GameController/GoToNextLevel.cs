@@ -50,7 +50,7 @@ public class GoToNextLevel : MonoBehaviour {
                 gameManagerScript.Save(levelReached);
             }
         }
-        if (lvlnumber == 7)
+        if (lvlnumber == 11)
         {
             SceneManager.LoadScene("End");
         }

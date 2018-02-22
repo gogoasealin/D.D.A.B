@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController gameController;
 
-    public GameObject player;
+    private GameObject player;
     private PlayerController playerControllerScript;
     public GameObject GameOverWindow;
     public GameObject PauseWindow;
@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         //gameManager = GameObject.FindGameObjectWithTag("GameManager");
         //gameManagerScript = gameManager.GetComponent<GameManager>();
         playerControllerScript = player.GetComponent<PlayerController>();

@@ -41,6 +41,11 @@ public class SearchForEnemy : MonoBehaviour {
 
     void GoToNextLevel()
     {
+        int levelMax = 0;
+        if (gameManagerScript != null)
+        {
+            gameManagerScript.Load(ref levelMax);
+        }
         Scene scene = SceneManager.GetActiveScene();
         string nextLevel = scene.name;
         string nextLevelName = nextLevel.Substring(nextLevel.Length - 1);
@@ -48,11 +53,13 @@ public class SearchForEnemy : MonoBehaviour {
         lvlnumber++;
         int levelReached = lvlnumber;
 
-        gameManagerScript.Save(levelReached);
-        if (lvlnumber == 6)
+        if (gameManagerScript != null)
         {
-            SceneManager.LoadScene("End");
+            if (levelReached > levelMax)
+            {
+                gameManagerScript.Save(levelReached);
+            }
         }
-        else SceneManager.LoadScene("level" + lvlnumber);
+        SceneManager.LoadScene("level" + lvlnumber);
     }
 }

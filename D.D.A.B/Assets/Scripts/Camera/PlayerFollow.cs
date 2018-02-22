@@ -8,7 +8,15 @@ public class PlayerFollow : MonoBehaviour {
     [SerializeField] private float yMax;
     [SerializeField] private float xMin;
     [SerializeField] private float yMin;
-    [SerializeField] private Transform target;
+    private Transform target;
+
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
+    }
 
     private void LateUpdate()
     {
