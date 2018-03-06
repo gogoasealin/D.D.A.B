@@ -5,19 +5,19 @@ using UnityEngine;
 public class KillPlayer : MonoBehaviour {
 
     private GameObject gameController;
-    private GameController gameManagerScript;
+    private GameController gameControllerScript;
 
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
-        gameManagerScript = gameController.GetComponent<GameController>();
+        gameControllerScript = gameController.GetComponent<GameController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {
-            gameManagerScript.GameOver();
+            gameControllerScript.GameOver();
         }
     }
 }

@@ -38,22 +38,48 @@ public class GoToNextLevel : MonoBehaviour {
         }
         Scene scene = SceneManager.GetActiveScene();
         string nextLevel = scene.name;
-        string nextLevelName = nextLevel.Substring(nextLevel.Length - 1);
-        int lvlnumber = int.Parse(nextLevelName);
-        lvlnumber++;
-        int levelReached = lvlnumber;
+        string nextLevelName;
+        if (scene.name.Length == 6)
+        {
+            nextLevelName = nextLevel.Substring(nextLevel.Length - 1);
+            int lvlnumber = int.Parse(nextLevelName);
+            lvlnumber++;
+            int levelReached = lvlnumber;
 
-        if (gameManagerScript != null)
-        {
-            if (levelReached > levelMax)
+            if (gameManagerScript != null)
             {
-                gameManagerScript.Save(levelReached);
+                if (levelReached > levelMax)
+                {
+                    gameManagerScript.Save(levelReached);
+                }
             }
+           
+            if (lvlnumber == 15)
+            {
+                SceneManager.LoadScene("End");
+            }
+            else SceneManager.LoadScene("level" + lvlnumber);
         }
-        if (lvlnumber == 11)
+        else if(scene.name.Length == 7)
         {
-            SceneManager.LoadScene("End");
+            nextLevelName = nextLevel.Substring(nextLevel.Length - 2);
+            int lvlnumber = int.Parse(nextLevelName);
+            lvlnumber++;
+            int levelReached = lvlnumber;
+            if (gameManagerScript != null)
+            {
+                if (levelReached > levelMax)
+                {
+                    gameManagerScript.Save(levelReached);
+                }
+            }
+            if (lvlnumber == 15)
+            {
+                SceneManager.LoadScene("End");
+            }
+            else SceneManager.LoadScene("level" + lvlnumber);
         }
-        else SceneManager.LoadScene("level" + lvlnumber);
+
+
     }
 }

@@ -10,9 +10,16 @@ TagManager:
   - Level
   - GameManager
   - Shuriken
-  - Trap
   - BackGround
   - Environment
+  - Box
+  - Breakable
+  - Trap
+  - Bomb
+  - BurningShuriken
+  - ShotDirection
+  - ForDestroy
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -24,8 +31,8 @@ TagManager:
   - 
   - background
   - player
-  - 
-  - 
+  - bomb
+  - enemy
   - 
   - 
   - 

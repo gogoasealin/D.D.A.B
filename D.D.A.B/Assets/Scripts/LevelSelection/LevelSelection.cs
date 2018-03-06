@@ -6,13 +6,9 @@ using UnityEngine.SceneManagement;
 public class LevelSelection : MonoBehaviour {
 
     public int levelID;
-    public bool levelUnlock = true;
 
     public void StartLevel()
     {
-        if(levelUnlock)
-        {
-            SceneManager.LoadScene("Level" + levelID);
-        }
+        SceneManager.LoadScene("Level" + levelID);
     }
 }

@@ -27,6 +27,7 @@ public class SwitchScript : MonoBehaviour {
                     GetComponent<SpriteRenderer>().sprite = sprite1;
                 }
             }
+            Destroy(other.gameObject);
 
         }
     }

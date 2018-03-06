@@ -39,9 +39,6 @@ public class PlayerController : MonoBehaviour {
 
 
     void Update() {
-
-
-
         dirX = CrossPlatformInputManager.GetAxis("Horizontal");
         if (moveJoystick.InputDirection != Vector3.zero)
         {
@@ -131,6 +128,10 @@ public class PlayerController : MonoBehaviour {
         {
             gameControllerScript.GameOver();
         }
+        //if(other.gameObject.tag == "Bomb")
+        //{
+        //     Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //}
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -148,6 +149,8 @@ public class PlayerController : MonoBehaviour {
             canJump = false;
         }
     }
+
+
 
     //private void CheckPlayerPosition()
     //{

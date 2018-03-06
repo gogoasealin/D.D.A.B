@@ -35,6 +35,11 @@ public class LevelTimerForWinning : MonoBehaviour {
             levelTimerText.text = "";
             GoToNextLevel();
         }
+        if (gameControllerScript.death)
+        {
+            levelTimerText.text = "";
+            Destroy(GetComponent<LevelTimerForWinning>());
+        }
     }
 
     void GoToNextLevel()
