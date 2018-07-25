@@ -10,6 +10,14 @@ public class WallRemoveWithSwtich : MonoBehaviour {
     [SerializeField] private Sprite switch2Sprite;
     [SerializeField] private GameObject switch3;
     [SerializeField] private Sprite switch3Sprite;
+
+    private void Awake()
+    {
+        if(switch1 == null || switch2 == null || switch3 == null )
+        {
+            Destroy(gameObject.GetComponent<WallRemoveWithSwtich>());
+        }
+    }
     void Update () {
 
         if (switch1.GetComponent<SpriteRenderer>().sprite == switch1Sprite

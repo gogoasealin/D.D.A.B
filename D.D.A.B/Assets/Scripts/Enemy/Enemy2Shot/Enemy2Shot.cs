@@ -18,15 +18,13 @@ public class Enemy2Shot : MonoBehaviour {
     private bool dieStart;
     Coroutine ShotBullet;
 
-
-
-
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameController>();
         anim = GetComponent<Animator>();
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -26,6 +26,8 @@ public class CannonShotScript : MonoBehaviour {
         }
     }
 
+
+
     void Update () {
 		if(CrossPlatformInputManager.GetButtonDown("Down") && (shots > 0 ))
         {
@@ -52,6 +54,7 @@ public class CannonShotScript : MonoBehaviour {
             Destroy(targets[i]);
         }
     }
+
 
     void StartTarget()
     {

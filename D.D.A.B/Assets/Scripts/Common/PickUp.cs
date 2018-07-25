@@ -96,7 +96,7 @@ public class PickUp : MonoBehaviour {
 
     void CheckPickUp()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Down"))
+        if (CrossPlatformInputManager.GetButtonDown("Use"))
         {
             PickUpObject();
         }
@@ -112,7 +112,7 @@ public class PickUp : MonoBehaviour {
 
     void CheckDrop()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Down"))
+        if (CrossPlatformInputManager.GetButtonDown("Use"))
         {
             Drop();
         }

@@ -6,14 +6,13 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerController : MonoBehaviour {
 
     public float speed;
-    private float dirX;
-    private float dirY;
+    public float dirX;
+    public float dirY;
     private Rigidbody2D rb2d;
     public bool canJump;
     private GameObject gameController;
     private GameController gameControllerScript;
     public Joystick moveJoystick;
-    private bool faceRight;
     public bool pause;
     public bool resume;
     private Quaternion movingLeft = Quaternion.Euler(0, 180, 0);
@@ -22,11 +21,16 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce ;
     public float jumpDistance;
     private bool playerOnJoystickPosition;
+    private Animator anim;
     public bool facingRight;
     public GameObject trowPosition;
     public GameObject trowPrefab;
     public bool canUseShuriken;
-    private Animator anim;
+    public bool canClimb;
+    [SerializeField] private bool climbing;
+    [SerializeField]private bool stopMovement;
+
+
 
 
     void Awake () {
@@ -107,11 +111,44 @@ public class PlayerController : MonoBehaviour {
 
     public void FixedUpdate()
     {
-        rb2d.velocity = new Vector2(dirX * speed, rb2d.velocity.y);
+        if (GetComponent<HookWithAnimation>() != null)
+        {
+            if (!GetComponent<HookWithAnimation>().hooking)
+            {
+                rb2d.velocity = new Vector2(dirX * speed, rb2d.velocity.y);
+            }
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(dirX * speed, rb2d.velocity.y);
+        }
+
     }
 
     public void DoJump()
     {
+        if (canClimb)
+        {
+            if (climbing)
+            {
+                StopMoving();
+                if (facingRight)
+                {
+                    rb2d.AddForce(new Vector2(-500f, 30f));// * speed);
+                }
+                else 
+                {
+                    rb2d.AddForce(new Vector2(500f, 30f));// * speed);
+                }
+                Invoke("StartMoving", 0.05f);
+                
+            }
+            else if (canJump)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x + jumpDistance, jumpForce);
+                canJump = false;
+            }
+        }
         if (canJump)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x + jumpDistance, jumpForce);
@@ -123,15 +160,15 @@ public class PlayerController : MonoBehaviour {
         if(other.gameObject.tag == "Ground")
         {
             canJump = true;
+        }else if(other.gameObject.tag == "Climbable")
+        {
+            canJump = true;
+            climbing = true;
         }
         if(other.gameObject.tag == "Enemy")
         {
             gameControllerScript.GameOver();
         }
-        //if(other.gameObject.tag == "Bomb")
-        //{
-        //     Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        //}
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -139,6 +176,10 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.tag == "Ground")
         {
             canJump = true;
+        }else if (other.gameObject.tag == "Climbable")
+        {
+            canJump = true;
+            climbing = true;
         }
     }
 
@@ -148,9 +189,22 @@ public class PlayerController : MonoBehaviour {
         {
             canJump = false;
         }
+        else if (other.gameObject.tag == "Climbable")
+        {
+            canJump = false;
+            climbing = false;
+        }
     }
 
+    private void StopMoving()
+    {
+        stopMovement = true;
+    }
 
+    private void StartMoving()
+    {
+        stopMovement = false;
+    }
 
     //private void CheckPlayerPosition()
     //{

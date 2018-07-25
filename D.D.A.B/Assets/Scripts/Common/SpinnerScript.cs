@@ -25,7 +25,7 @@ public class SpinnerScript : MonoBehaviour {
             if (triggerNumber == 0)
             {
                 Roll();
-                Destroy(GetComponent<BoxCollider2D>());
+                Destroy(GetComponentInChildren<BoxCollider2D>());
                 triggerNumber++;
             }
             else

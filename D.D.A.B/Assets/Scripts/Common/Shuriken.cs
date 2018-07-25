@@ -27,7 +27,7 @@ public class Shuriken : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Ground" || other.tag == "Environment" || other.tag == "Breakable")
+        if (other.tag == "Ground" || other.tag == "Breakable" || other.tag == "Climbable" || other.tag == "Environment")
         {
             Destroy(gameObject);
         }

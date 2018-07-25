@@ -36,18 +36,21 @@ public class GameController : MonoBehaviour
 
         //playAdd = GetComponent<PlayAdd>();
         //playAdd.InitializeAdd();
+        
 
 
         PrepareGame();
 
-    }  
+    }
 
 
 
 
     public void GameOver()
     {
-        playerControllerScript.enabled = false;
+        if (playerControllerScript != null) { 
+            playerControllerScript.enabled = false;
+        }
         death = true;
         //animatie de moarte
 
